@@ -8,15 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <title>Boutique — Cactus Maroc</title>
-  <style>
-    /* Boutons correction couleur */
-    .button--primary { background-color: #4caf50; color: #fff; border: none; }
-    .button--outline { border: 2px solid #4caf50; color: #4caf50; background-color: transparent; }
-    .auth-hidden { display: none !important; }
-  </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="header" id="header">
     <nav class="nav container">
       <a href="index.html" class="nav__logo">Cactus Maroc</a>
@@ -38,7 +32,7 @@
     </nav>
   </header>
 
-  <!-- Main -->
+  <!-- MAIN -->
   <main class="main">
     <section class="section container" id="shop" data-shop>
       <h1 class="section__title">Boutique</h1>
@@ -59,6 +53,11 @@
           <button class="button button--primary" type="button" id="shop-guard-signup">S'inscrire</button>
           <button class="button button--outline" type="button" id="shop-guard-visitor">Visiteur</button>
         </div>
+      </div>
+
+      <!-- Bouton retour mode visiteur -->
+      <div id="visitor-back-wrap" style="margin:1rem 0; display:none;">
+        <button class="button button--outline" id="visitor-back-btn">Retour au mode visiteur</button>
       </div>
 
       <!-- Filtres de boutique -->
@@ -118,7 +117,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__container grid">
       <div>
@@ -147,36 +146,48 @@
     <p class="footer__copy">© Cactus Maroc. Tous droits réservés.</p>
   </footer>
 
-  <a href="#shop" class="scrollup" id="scroll-up" aria-label="Retour haut"><i class="ri-arrow-up-line"></i></a>
+  <a href="#shop" class="scrollup" id="scroll-up" aria-label="Retour haut">
+    <i class="ri-arrow-up-line"></i>
+  </a>
 
   <!-- Scripts -->
   <script src="assets/js/scrollreveal.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
   <script src="assets/js/auth.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/login.js"></script>
 
   <script>
     // Boutons de la page boutique
     const loginButton = document.getElementById("shop-guard-login");
     const signupButton = document.getElementById("shop-guard-signup");
     const visitorButton = document.getElementById("shop-guard-visitor");
+    const visitorBackWrap = document.getElementById("visitor-back-wrap");
+    const visitorBackBtn = document.getElementById("visitor-back-btn");
 
     loginButton.addEventListener("click", () => window.location.href = "connexion.html");
     signupButton.addEventListener("click", () => window.location.href = "inscription.html");
 
     visitorButton.addEventListener("click", () => {
       document.getElementById("shop-guard").style.display = "none";
-
-      // Débloquer la boutique et filtres
       document.querySelectorAll(".auth-hidden").forEach(el => el.classList.remove("auth-hidden"));
+      visitorBackWrap.style.display = "block";
     });
 
-    // Checkout simulation
-    document.addEventListener('DOMContentLoaded', () => {
+    visitorBackBtn.addEventListener("click", () => {
+      document.getElementById("shop-guard").style.display = "block";
+      document.querySelectorAll(".shop__grid, .filters, .cart").forEach(el => el.classList.add("auth-hidden"));
+      visitorBackWrap.style.display = "none";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Simple checkout feedback
+    document.addEventListener('DOMContentLoaded', ()=>{
       const btn = document.getElementById('cart-checkout');
-      if (btn) btn.addEventListener('click', () => alert('Commande simulée. Aucun paiement en ligne.'));
+      if (btn) btn.addEventListener('click', ()=> alert('Commande simulée. Aucun paiement en ligne.'));
     });
   </script>
 </body>
 </html>
+
 
