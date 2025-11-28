@@ -86,6 +86,45 @@ img {
   max-width: 100%;
   height: auto;
 }
+/* Boutons principaux (Se connecter / S'inscrire) */
+.button.button--primary {
+  background-color: #27ae60; /* vert cactus */
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.button.button--primary:hover {
+  background-color: #1e8449;
+}
+
+/* Bouton Visiteur */
+.button.button--outline#shop-guard-visitor,
+.button.button--outline#visitor-back-btn {
+  border: 2px solid #2980b9; /* bleu */
+  color: #2980b9;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+.button.button--outline#shop-guard-visitor:hover,
+.button.button--outline#visitor-back-btn:hover {
+  background-color: #2980b9;
+  color: #fff;
+}
+
+/* Boutons filtres */
+.filter__btn {
+  border: 2px solid #e67e22; /* orange */
+  color: #e67e22;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+.filter__btn:hover {
+  background-color: #e67e22;
+  color: #fff;
+}
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {

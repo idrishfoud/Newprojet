@@ -6,60 +6,11 @@
   <meta name="description" content="Boutique Cactus Maroc: plantes, graines et produits dérivés du cactus. Panier localStorage et filtres par catégorie." />
   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
   <title>Boutique — Cactus Maroc</title>
-  <style>
-    /* ==== Styles des boutons ==== */
-    .button {
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: all 0.3s ease;
-    }
-
-    /* Boutons primaires */
-    .button--primary {
-      background-color: #4caf50; /* vert */
-      color: white;
-      border: 2px solid #4caf50;
-    }
-    .button--primary:hover {
-      background-color: white;
-      color: #4caf50;
-    }
-
-    /* Boutons secondaires */
-    .button--secondary {
-      background-color: #ff9800; /* orange */
-      color: white;
-      border: 2px solid #ff9800;
-    }
-    .button--secondary:hover {
-      background-color: white;
-      color: #ff9800;
-    }
-
-    /* Boutons outline (filtres) */
-    .button--outline {
-      background-color: white;
-      color: #4caf50;
-      border: 2px solid #4caf50;
-    }
-    .button--outline:hover {
-      background-color: #4caf50;
-      color: white;
-    }
-    
-    /* Grid boutique simplifiée */
-    .shop__grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem; }
-    .product { border: 1px solid #ccc; padding: 1rem; border-radius: 0.5rem; text-align: center; }
-    .auth-hidden { display: none; }
-    .auth-note { padding: 1rem; border: 1px solid #ddd; border-radius: 0.5rem; margin-bottom: 1rem; background: #f9f9f9; }
-    .filters { margin-bottom: 1rem; display: flex; gap: 10px; flex-wrap: wrap; }
-  </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header class="header" id="header">
     <nav class="nav container">
       <a href="index.html" class="nav__logo">Cactus Maroc</a>
@@ -81,22 +32,32 @@
     </nav>
   </header>
 
+  <!-- MAIN -->
   <main class="main">
     <section class="section container" id="shop" data-shop>
       <h1 class="section__title">Boutique</h1>
       <p>Plantes, graines et produits dérivés du cactus. Livraison nationale.</p><br>
 
-      <!-- Message de connexion avec boutons -->
+      <!-- Message de connexion -->
       <div id="shop-guard" class="auth-note">
         <p>
           Bienvenue dans notre Boutique de Cactus.<br><br>
+          Découvrez une collection unique de cactus soigneusement sélectionnés pour apporter une touche naturelle et élégante à votre espace.<br>
+          Que vous soyez passionné par les plantes, débutant ou collectionneur, vous trouverez ici des cactus résistants, décoratifs et faciles à entretenir.<br><br>
+          Nos plantes sont choisies avec attention pour garantir qualité, beauté et longévité.<br>
+          Explorez notre boutique et laissez-vous inspirer par le charme authentique du cactus.<br><br>
           Connectez-vous pour consulter la boutique et ajouter au panier.
         </p><br>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
           <button class="button button--primary" type="button" id="shop-guard-login">Se connecter</button>
           <button class="button button--primary" type="button" id="shop-guard-signup">S'inscrire</button>
-          <button class="button button--secondary" type="button" id="shop-guard-visitor">Visiteur</button>
+          <button class="button button--outline" type="button" id="shop-guard-visitor">Visiteur</button>
         </div>
+      </div>
+
+      <!-- Bouton retour mode visiteur -->
+      <div id="visitor-back-wrap" style="margin:1rem 0; display:none;">
+        <button class="button button--outline" id="visitor-back-btn">Retour au mode visiteur</button>
       </div>
 
       <!-- Filtres de boutique -->
@@ -113,31 +74,31 @@
           <img src="assets/img/shop-cactus-1.png" alt="Cactus Gymnocalycium" />
           <h3 class="product__title">Cactus Gymnocalycium</h3>
           <div class="product__price" data-price>150.00 MAD</div>
-          <button class="button button--primary" data-add>Ajouter</button>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
         </article>
         <article class="product" data-product data-category="seed" data-id="s1" data-price="40">
           <img src="assets/img/shop-cactus-2.png" alt="Graines de cactus" />
           <h3 class="product__title">Graines mix cactus</h3>
           <div class="product__price" data-price>40.00 MAD</div>
-          <button class="button button--primary" data-add>Ajouter</button>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
         </article>
         <article class="product" data-product data-category="product" data-id="o1" data-price="320">
           <img src="assets/img/shop-cactus-3.png" alt="Huile de figue de barbarie" />
           <h3 class="product__title">Huile de figue de barbarie 30ml</h3>
           <div class="product__price" data-price>320.00 MAD</div>
-          <button class="button button--primary" data-add>Ajouter</button>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
         </article>
         <article class="product" data-product data-category="plant" data-id="p2" data-price="110">
           <img src="assets/img/shop-cactus-4.png" alt="Echeveria" />
           <h3 class="product__title">Echeveria</h3>
           <div class="product__price" data-price>110.00 MAD</div>
-          <button class="button button--primary" data-add>Ajouter</button>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
         </article>
         <article class="product" data-product data-category="product" data-id="o2" data-price="45">
           <img src="assets/img/shop-cactus-5.png" alt="Confiture de cactus" />
           <h3 class="product__title">Confiture de cactus</h3>
           <div class="product__price" data-price>45.00 MAD</div>
-          <button class="button button--primary" data-add>Ajouter</button>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
         </article>
       </div>
 
@@ -156,39 +117,74 @@
     </section>
   </main>
 
-  <!-- Footer simplifié -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>© Cactus Maroc. Tous droits réservés.</p>
+    <div class="container footer__container grid">
+      <div>
+        <a href="index.html" class="footer__logo">Cactus Maroc</a>
+        <p class="footer__description">Produits authentiques et durables.</p>
+      </div>
+      <div>
+        <h3 class="footer__title">Liens</h3>
+        <ul class="footer__links">
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="shop.html">Boutique</a></li>
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="intermediaire.html">Intermédiaire</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__title">Suivez-nous</h3>
+        <div class="footer__socials">
+          <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
+          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer__copy">© Cactus Maroc. Tous droits réservés.</p>
   </footer>
+
+  <a href="#shop" class="scrollup" id="scroll-up" aria-label="Retour haut">
+    <i class="ri-arrow-up-line"></i>
+  </a>
 
   <!-- Scripts -->
   <script src="assets/js/scrollreveal.min.js"></script>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
   <script src="assets/js/auth.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/login.js"></script>
 
   <script>
     // Boutons de la page boutique
     const loginButton = document.getElementById("shop-guard-login");
     const signupButton = document.getElementById("shop-guard-signup");
     const visitorButton = document.getElementById("shop-guard-visitor");
+    const visitorBackWrap = document.getElementById("visitor-back-wrap");
+    const visitorBackBtn = document.getElementById("visitor-back-btn");
 
     loginButton.addEventListener("click", () => window.location.href = "connexion.html");
     signupButton.addEventListener("click", () => window.location.href = "inscription.html");
 
     visitorButton.addEventListener("click", () => {
-        document.getElementById("shop-guard").style.display = "none";
-        document.querySelectorAll(".auth-hidden").forEach(el => el.classList.remove("auth-hidden"));
-        
-        // Créer bouton retour
-        let backBtn = document.createElement("button");
-        backBtn.textContent = "Retour";
-        backBtn.className = "button button--secondary";
-        backBtn.id = "visitor-back";
-        document.querySelector("main").prepend(backBtn);
+      document.getElementById("shop-guard").style.display = "none";
+      document.querySelectorAll(".auth-hidden").forEach(el => el.classList.remove("auth-hidden"));
+      visitorBackWrap.style.display = "block";
+    });
 
-        backBtn.addEventListener("click", () => {
-          location.reload();
-        });
+    visitorBackBtn.addEventListener("click", () => {
+      document.getElementById("shop-guard").style.display = "block";
+      document.querySelectorAll(".shop__grid, .filters, .cart").forEach(el => el.classList.add("auth-hidden"));
+      visitorBackWrap.style.display = "none";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Simple checkout feedback
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const btn = document.getElementById('cart-checkout');
+      if (btn) btn.addEventListener('click', ()=> alert('Commande simulée. Aucun paiement en ligne.'));
     });
   </script>
 </body>
