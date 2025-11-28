@@ -20,12 +20,13 @@
         font-family: Arial, sans-serif;
         display: flex;
         height: 100vh;
+        overflow: hidden;
     }
 
     /* Colonne image */
     .image-side {
         flex: 1;
-        background-image: url('assets/img/Cactus1.jpg'); /* chemin vers ton image */
+        background-image: url('assets/img/Cactus1.jpg');
         background-size: cover;
         background-position: center;
     }
@@ -40,37 +41,41 @@
     }
 
     .container {
-        width: 80%;
+        width: 90%;
         max-width: 400px;
         padding: 30px;
         border-radius: 10px;
         box-shadow: var(--shadow-img);
-        background-color: rgba(33,33,33,0.9); /* léger overlay pour lisibilité */
+        background-color: rgba(33,33,33,0.9);
         color: var(--white-color);
     }
 
     h1 {
         color: var(--first-color);
         text-align: center;
+        margin-bottom: 20px;
     }
 
     input[type="text"], input[type="password"] {
         width: 100%;
-        padding: 10px;
+        box-sizing: border-box;
+        padding: 12px 15px;
         margin: 10px 0;
         border-radius: 5px;
         border: 1px solid var(--first-color-light);
+        font-size: 16px;
     }
 
     button {
         width: 100%;
-        padding: 10px;
+        padding: 12px;
         margin-top: 15px;
         border: none;
         border-radius: 5px;
         background: var(--first-color);
         color: var(--white-color);
         font-weight: bold;
+        font-size: 16px;
         cursor: pointer;
         transition: background 0.3s;
     }
@@ -85,6 +90,7 @@
         margin-top: 10px;
         color: var(--first-color-light);
         text-decoration: none;
+        font-size: 14px;
     }
 
     .link:hover {
@@ -117,4 +123,5 @@
     </div>
 </body>
 </html>
+
 
