@@ -120,3 +120,25 @@
     init();
   }
 })();
+const authWidget = document.getElementById("auth-widget");
+
+function updateAuthUI() {
+  const logged = localStorage.getItem("loggedIn");
+
+  if (logged === "true") {
+    authWidget.innerHTML = `
+      <button id="logout-btn" class="button button--small">Déconnexion</button>
+    `;
+
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("userEmail");
+      window.location.reload();
+    });
+
+  } else {
+    authWidget.innerHTML = `
+      <a href="login.html" class="button button--small">Connexion</a>
+    `;
+  }
+}

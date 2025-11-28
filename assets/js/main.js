@@ -238,3 +238,4 @@
   if (iClear) iClear.addEventListener('click', ()=>{ saveInter([]); renderInter(); });
   renderInter();
 })();
+
