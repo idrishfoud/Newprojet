@@ -1,143 +1,118 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        :root {
-            --first-color: hsl(108, 42%, 45%);
-            --first-color-alt: hsl(108, 42%, 38%);
-            --first-color-light: hsl(108, 42%, 60%);
-            --text-color: hsl(35, 20%, 78%);
-            --white-color: hsl(35, 25%, 98%);
-            --black-color: hsl(210, 10%, 8%);
-            --body-color: hsl(210, 12%, 10%);
-            --container-color: hsl(210, 14%, 14%);
-            --shadow-img: 0 0 48px hsla(93, 54%, 54%, .4);
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: var(--body-color);
-            color: var(--text-color);
-            display: flex;
-            min-height: 100vh;
-        }
-
-        .left-side {
-            flex: 1;
-            background: url('Cactus1.jpg') no-repeat center center;
-            background-size: cover;
-        }
-
-        .right-side {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-            background-color: var(--body-color);
-        }
-
-        .container {
-            background: var(--container-color);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow-img);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        h1 {
-            color: var(--first-color);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"], input[type="email"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid var(--first-color-light);
-            border-radius: 5px;
-            background: var(--white-color);
-            color: var(--black-color);
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 15px;
-            border: none;
-            border-radius: 5px;
-            background: var(--first-color);
-            color: var(--white-color);
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background: var(--first-color-alt);
-            transform: scale(1.05);
-        }
-
-        .link {
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-            color: var(--first-color-light);
-            text-decoration: none;
-        }
-
-        .link:hover {
-            text-decoration: underline;
-        }
-
-        .home-link {
-            display: block;
-            margin-bottom: 15px;
-            color: var(--first-color-light);
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .home-link:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .left-side {
-                height: 200px;
-                width: 100%;
-            }
-            .right-side {
-                width: 100%;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscription</title>
+<style>
+:root {
+    --first-color: hsl(108, 42%, 45%);
+    --first-color-alt: hsl(108, 42%, 38%);
+    --first-color-light: hsl(108, 42%, 60%);
+    --white-color: #fff;
+    --black-color: #000;
+    --body-color: hsl(210,12%,10%);
+    --container-color: hsl(210,14%,14%);
+    --shadow-img: 0 0 48px hsla(93,54%,54%,.4);
+}
+* { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--body-color);
+}
+.wrapper {
+    display: flex;
+    width: 90%;
+    max-width: 900px;
+    height: 600px;
+    box-shadow: var(--shadow-img);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.left-side {
+    flex: 1;
+    background: url('images/Cactus1.jpg') no-repeat center center;
+    background-size: cover;
+}
+.right-side {
+    flex: 1;
+    background-color: var(--container-color);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1 {
+    color: var(--first-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--first-color-light);
+    border-radius: 5px;
+    background: var(--white-color);
+    color: var(--black-color);
+    font-size: 16px;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background: var(--first-color);
+    color: var(--white-color);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background: var(--first-color-alt);
+    transform: scale(1.05);
+}
+.links {
+    text-align: center;
+    margin-top: 15px;
+}
+.links a {
+    color: var(--first-color-light);
+    text-decoration: none;
+    margin: 0 5px;
+}
+.links a:hover {
+    text-decoration: underline;
+}
+@media(max-width: 768px){
+    .wrapper { flex-direction: column; height: auto; }
+    .left-side, .right-side { flex: none; width: 100%; height: 300px; }
+    .right-side { padding: 20px; }
+}
+</style>
 </head>
 <body>
+<div class="wrapper">
     <div class="left-side"></div>
     <div class="right-side">
-        <div class="container">
-            <a class="home-link" href="index.html">← Retour à l'accueil</a>
-            <h1>Inscription</h1>
-            <form action="inscription.php" method="post">
-                <input type="text" name="username" placeholder="Nom d'utilisateur" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Mot de passe" required>
-                <button type="submit">S'inscrire</button>
-            </form>
-            <a class="link" href="connexion.html">Déjà inscrit ? Se connecter</a>
+        <h1>Inscription</h1>
+        <form action="inscription.php" method="post">
+            <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Mot de passe" required>
+            <button type="submit">S'inscrire</button>
+        </form>
+        <div class="links">
+            <a href="connexion.html">Déjà inscrit ?</a> |
+            <a href="index.html">Retour à l'accueil</a>
         </div>
     </div>
+</div>
 </body>
 </html>
 
