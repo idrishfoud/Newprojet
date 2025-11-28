@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contactez Cactus Maroc: questions, partenariats, volontariat. Formulaire avec validation et liens vers réseaux sociaux." />
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Contact — Cactus Maroc</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo">Cactus Maroc</a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="index.html" class="nav__link">Accueil</a></li>
+            <li><a href="about.html" class="nav__link">À propos</a></li>
+            <li><a href="shop.html" class="nav__link">Boutique</a></li>
+            <li><a href="intermediaire.html" class="nav__link">Intermédiaire</a></li>
+            <li><a href="projets.html" class="nav__link">Projets</a></li>
+            <li><a href="contact.html" class="nav__link active-link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="nav__actions">
+          <a href="shop.html#cart" class="nav__cart" title="Panier"><i class="ri-shopping-bag-2-line"></i></a>
+          <div id="auth-widget" class="nav__auth-wrap"></div>
+          <button class="nav__toggle" id="nav-toggle" aria-label="Menu"><i class="ri-menu-line"></i></button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="section container" id="contact">
+        <h1 class="section__title">Contact</h1>
+        <p>Des questions ? Écrivez-nous et nous vous répondrons rapidement.</p>
+        <form class="form" id="contact-form">
+          <div class="form__row">
+            <label for="contact-name">Nom</label>
+            <input id="contact-name" type="text" placeholder="Votre nom" required />
+          </div>
+          <div class="form__row">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" type="email" placeholder="vous@exemple.com" required />
+          </div>
+          <div class="form__row">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" rows="5" placeholder="Votre message" required></textarea>
+          </div>
+          <button class="button button--primary" type="submit">Envoyer</button>
+        </form>
+        <div style="margin-top:1.5rem;">
+          <h2 class="section__title">Réseaux sociaux</h2>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__container grid">
+        <div>
+          <a href="index.html" class="footer__logo">Cactus Maroc</a>
+          <p class="footer__description">Nous restons à votre écoute.</p>
+        </div>
+        <div>
+          <h3 class="footer__title">Liens</h3>
+          <ul class="footer__links">
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="shop.html">Boutique</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="intermediaire.html">Intermédiaire</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Suivez-nous</h3>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer__copy">© Cactus Maroc. Tous droits réservés.</p>
+    </footer>
+
+    <a href="#contact" class="scrollup" id="scroll-up" aria-label="Retour haut">
+      <i class="ri-arrow-up-line"></i>
+    </a>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+  </html>

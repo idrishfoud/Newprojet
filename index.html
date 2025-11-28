@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cactus Maroc promeut et réhabilite la culture du cactus au Maroc: sensibilisation, projets, boutique et mise en relation acheteurs/fournisseurs." />
+
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>Cactus Maroc — Réhabilitation & Promotion</title>
+  </head>
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo">Cactus Maroc</a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="index.html" class="nav__link active-link">Accueil</a></li>
+            <li><a href="about.html" class="nav__link">À propos</a></li>
+            <li><a href="shop.html" class="nav__link">Boutique</a></li>
+            <li><a href="intermediaire.html" class="nav__link">Intermédiaire</a></li>
+            <li><a href="projets.html" class="nav__link">Projets</a></li>
+            <li><a href="contact.html" class="nav__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="nav__actions">
+          <a href="shop.html#cart" class="nav__cart" title="Panier"
+            ><i class="ri-shopping-bag-2-line"></i
+          ></a>
+          <div id="auth-widget" class="nav__auth-wrap"></div>
+          <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+            <i class="ri-menu-line"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <!--==================== HERO ====================-->
+      <section class="hero section" id="home">
+        <div class="hero__bg" role="img" aria-label="Cactus marocain"></div>
+        <div class="container hero__container grid">
+          <div class="hero__content">
+            <h1 class="hero__title">
+              Réhabiliter le cactus au Maroc
+            </h1>
+            <p class="hero__description">
+              Le cactus joue un rôle essentiel pour la résilience climatique,
+              la lutte contre la désertification, la biodiversité et les
+              revenus des communautés rurales. Découvrez nos actions, nos
+              produits, et rejoignez le mouvement.
+            </p>
+            <div class="hero__buttons">
+              <a href="shop.html" class="button button--primary"
+                ><i class="ri-shopping-bag-3-line"></i> Boutique</a
+              >
+              <a href="projets.html" class="button button--outline"
+                ><i class="ri-leaf-line"></i> Projets</a
+              >
+              <a href="about.html" class="button button--ghost"
+                ><i class="ri-book-open-line"></i> À propos</a
+              >
+            </div>
+          </div>
+          <div class="hero__image">
+            <img src="assets/img/home-cactus.png" alt="Cactus" />
+          </div>
+        </div>
+      </section>
+
+      <!--==================== STATISTICS ====================-->
+      <section class="stats section" id="stats">
+        <div class="container grid stats__grid">
+          <div class="stat__item">
+            <h3 class="stat__value" data-count="120">120+</h3>
+            <p class="stat__label">Plantations</p>
+          </div>
+          <div class="stat__item">
+            <h3 class="stat__value" data-count="14">14</h3>
+            <p class="stat__label">Régions couvertes</p>
+          </div>
+          <div class="stat__item">
+            <h3 class="stat__value" data-count="350">350+</h3>
+            <p class="stat__label">Bénévoles</p>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== GALLERY ====================-->
+      <section class="gallery section" id="gallery">
+        <h2 class="section__title">Galerie</h2>
+        <div class="container grid gallery__grid">
+          <img src="assets/img/new-cactus-1.png" alt="Cactus 1" class="gallery__img" loading="lazy" sizes="(min-width:1150px) 16vw, (min-width:768px) 24vw, 45vw" />
+          <img src="assets/img/new-cactus-2.png" alt="Cactus 2" class="gallery__img" loading="lazy" sizes="(min-width:1150px) 16vw, (min-width:768px) 24vw, 45vw" />
+          <img src="assets/img/new-cactus-3.png" alt="Cactus 3" class="gallery__img" loading="lazy" sizes="(min-width:1150px) 16vw, (min-width:768px) 24vw, 45vw" />
+          <img src="assets/img/shop-cactus-1.png" alt="Produit 1" class="gallery__img" loading="lazy" sizes="(min-width:1150px) 16vw, (min-width:768px) 24vw, 45vw" />
+          <img src="assets/img/shop-cactus-2.png" alt="Produit 2" class="gallery__img" loading="lazy" sizes="(min-width:1150px) 16vw, (min-width:768px) 24vw, 45vw" />
+          <img src="assets/img/shop-cactus-3.png" alt="Produit 3" class="gallery__img" loading="lazy" sizes="(min-width:1150px) 16vw, (min-width:768px) 24vw, 45vw" />
+        </div>
+      </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+      <div class="container footer__container grid">
+        <div>
+          <a href="index.html" class="footer__logo">Cactus Maroc</a>
+          <p class="footer__description">
+            Choisissez des solutions durables et soutenez les producteurs
+            locaux.
+          </p>
+        </div>
+        <div>
+          <h3 class="footer__title">Liens</h3>
+          <ul class="footer__links">
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="shop.html">Boutique</a></li>
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="intermediaire.html">Intermédiaire</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Suivez-nous</h3>
+          <div class="footer__socials">
+            <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer__copy">© Cactus Maroc. Tous droits réservés.</p>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#home" class="scrollup" id="scroll-up" aria-label="Retour haut">
+      <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <!--=============== AUTH (Auth0) ===============-->
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
+    <script src="assets/js/auth.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

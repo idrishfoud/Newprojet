@@ -1,0 +1,1 @@
+If you need to replace or add new images later, add them under assets/img/ and reference here.
