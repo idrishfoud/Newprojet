@@ -1,104 +1,120 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        :root {
-            --first-color: hsl(108, 42%, 45%);
-            --first-color-alt: hsl(108, 42%, 38%);
-            --first-color-light: hsl(108, 42%, 60%);
-            --title-color: hsl(35, 25%, 95%);
-            --text-color: hsl(35, 20%, 78%);
-            --white-color: hsl(35, 25%, 98%);
-            --black-color: hsl(210, 10%, 8%);
-            --body-color: hsl(210, 12%, 10%);
-            --container-color: hsl(210, 14%, 14%);
-            --shadow-img: 0 0 48px hsla(93, 54%, 54%, .4);
-            --gradient-card: linear-gradient(180deg, hsla(108, 10%, 10%, 1), hsla(108, 30%, 25%, 0.9));
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion</title>
+<style>
+    :root {
+        --first-color: hsl(108, 42%, 45%);
+        --first-color-alt: hsl(108, 42%, 38%);
+        --first-color-light: hsl(108, 42%, 60%);
+        --white-color: hsl(35, 25%, 98%);
+        --black-color: hsl(210, 10%, 8%);
+        --container-color: hsl(210, 14%, 14%);
+        --shadow-img: 0 0 48px hsla(93, 54%, 54%, .4);
+    }
 
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        height: 100vh;
+    }
+
+    /* Colonne image */
+    .image-side {
+        flex: 1;
+        background-image: url('assets/img/Cactus1.jpg'); /* chemin vers ton image */
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Colonne formulaire */
+    .form-side {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--container-color);
+    }
+
+    .container {
+        width: 80%;
+        max-width: 400px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: var(--shadow-img);
+        background-color: rgba(33,33,33,0.9); /* léger overlay pour lisibilité */
+        color: var(--white-color);
+    }
+
+    h1 {
+        color: var(--first-color);
+        text-align: center;
+    }
+
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid var(--first-color-light);
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 5px;
+        background: var(--first-color);
+        color: var(--white-color);
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: var(--first-color-alt);
+    }
+
+    .link {
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+        color: var(--first-color-light);
+        text-decoration: none;
+    }
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+    @media(max-width: 768px){
         body {
-            background-color: var(--body-color);
-            background-image: url('assets/img/Cactus1.jpg'); /* chemin vers ton image */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: var(--text-color);
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            flex-direction: column;
         }
-
-        .container {
-            background: var(--container-color);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow-img);
-            width: 100%;
-            max-width: 400px;
-            backdrop-filter: blur(10px); /* flouté pour voir le fond */
+        .image-side, .form-side {
+            flex: unset;
+            height: 50vh;
         }
-
-        h1 {
-            color: var(--first-color);
-            text-align: center;
-        }
-
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid var(--first-color-light);
-            border-radius: 5px;
-            background: var(--white-color);
-            color: var(--black-color);
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 15px;
-            border: none;
-            border-radius: 5px;
-            background: var(--first-color);
-            color: var(--white-color);
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background: var(--first-color-alt);
-        }
-
-        .link {
-            text-align: center;
-            margin-top: 10px;
-            display: block;
-            color: var(--first-color-light);
-            text-decoration: none;
-        }
-
-        .link:hover {
-            text-decoration: underline;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Connexion</h1>
-        <form action="connexion.php" method="post">
-            <input type="text" name="username" placeholder="Nom d'utilisateur" required>
-            <input type="password" name="password" placeholder="Mot de passe" required>
-            <button type="submit">Se connecter</button>
-        </form>
-        <a class="link" href="inscription.html">Pas encore inscrit ? S'inscrire</a>
+    <div class="image-side"></div>
+    <div class="form-side">
+        <div class="container">
+            <h1>Connexion</h1>
+            <form action="connexion.php" method="post">
+                <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+            </form>
+            <a class="link" href="inscription.html">Pas encore inscrit ? S'inscrire</a>
+        </div>
     </div>
 </body>
 </html>
+
