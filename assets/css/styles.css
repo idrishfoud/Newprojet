@@ -669,4 +669,42 @@ header.header {
   box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* petite ombre (optionnel) */ 
   line-height: 1.6; 
 }
+/* Boutons généraux */
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Bouton principal (vert) */
+.button--primary {
+  background: #4CAF50;      /* vert */
+  color: #fff;
+  border: 2px solid #4CAF50;
+}
+
+.button--primary:hover {
+  background: #3e8e41;
+  border-color: #3e8e41;
+}
+
+/* Bouton outline : contour vert, fond transparent */
+.button--outline {
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+}
+
+/* Hover outline : léger fond vert transparent */
+.button--outline:hover {
+  background: rgba(76, 175, 80, 0.15);
+  color: #4CAF50;
+  border-color: #4CAF50;
+}
 
