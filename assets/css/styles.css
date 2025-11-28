@@ -708,3 +708,25 @@ header.header {
   border-color: #4CAF50;
 }
 
+/* --- STYLE SPECIAL : VISITEUR & RETOUR --- */
+.button--visitor,
+#shop-guard-visitor,
+#visitor-back-btn {
+    background: transparent !important;
+    color: #4CAF50 !important;          /* Texte vert */
+    border: 2px solid #4CAF50 !important;
+    padding: 0.75rem 1.3rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Hover vert transparent + zoom propre */
+.button--visitor:hover,
+#shop-guard-visitor:hover,
+#visitor-back-btn:hover {
+    background: rgba(76, 175, 80, 0.25) !important;
+    color: #4CAF50 !important;
+    transform: scale(1.05);
+}
