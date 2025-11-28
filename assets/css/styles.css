@@ -248,3 +248,11 @@ header.header {
 @media (min-width: 1150px) {
   .gallery__grid { grid-template-columns: repeat(6, 1fr); }
 }
+.white-box {
+  background: #fff;           /* fond blanc */
+  color: #000;                /* texte noir */
+  padding: 20px;              /* espace intérieur */
+  border-radius: 10px;        /* coins arrondis (optionnel) */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* petite ombre (optionnel) */
+  line-height: 1.6;
+}
