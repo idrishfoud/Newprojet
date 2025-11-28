@@ -124,5 +124,12 @@
     <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/login.js"></script>
+    <script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
   </body>
   </html>

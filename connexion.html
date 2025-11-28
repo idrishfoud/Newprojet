@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --first-color: hsl(108, 42%, 45%);
+            --first-color-alt: hsl(108, 42%, 38%);
+            --first-color-light: hsl(108, 42%, 60%);
+            --title-color: hsl(35, 25%, 95%);
+            --text-color: hsl(35, 20%, 78%);
+            --white-color: hsl(35, 25%, 98%);
+            --black-color: hsl(210, 10%, 8%);
+            --body-color: hsl(210, 12%, 10%);
+            --container-color: hsl(210, 14%, 14%);
+            --shadow-img: 0 0 48px hsla(93, 54%, 54%, .4);
+            --gradient-card: linear-gradient(180deg, hsla(108, 10%, 10%, 1), hsla(108, 30%, 25%, 0.9));
+        }
+
+        body {
+            background-color: var(--body-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: var(--container-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-img);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: var(--first-color);
+            text-align: center;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid var(--first-color-light);
+            border-radius: 5px;
+            background: var(--white-color);
+            color: var(--black-color);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            background: var(--first-color);
+            color: var(--white-color);
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: var(--first-color-alt);
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 10px;
+            color: var(--first-color-light);
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Connexion</h1>
+        <form action="connexion.php" method="post">
+            <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+            <input type="password" name="password" placeholder="Mot de passe" required>
+            <button type="submit">Se connecter</button>
+        </form>
+        <a class="link" href="inscription.html">Pas encore inscrit ? S'inscrire</a>
+    </div>
+</body>
+</html>

@@ -39,6 +39,8 @@
         <div id="shop-guard" class="auth-note">
           <p>Connectez-vous pour consulter la boutique et ajouter au panier.</p>
           <button class="button button--primary" type="button" id="shop-guard-login">Se connecter</button>
+          <button class="button button--primary" type="button" id="shop-guard-signup">S'inscrire</button>
+
         </div>
 
         <div class="filters auth-hidden">
@@ -128,6 +130,12 @@
       <i class="ri-arrow-up-line"></i>
     </a>
     <script>
+    document.getElementById("shop-guard-login").addEventListener("click", function () {
+        window.location.href = "connexion.html";
+    });
+    </script>
+
+    <script>
       // Simple checkout feedback
       document.addEventListener('DOMContentLoaded', ()=>{
         const btn = document.getElementById('cart-checkout');
@@ -144,5 +152,20 @@
     <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/login.js"></script>
+    <script>
+    // Bouton Se connecter
+    const loginButton = document.getElementById("shop-guard-login");
+    loginButton.addEventListener("click", () => {
+        window.location.href = "connexion.html";
+    });
+
+    // Bouton S'inscrire
+    const signupButton = document.getElementById("shop-guard-signup");
+    signupButton.addEventListener("click", () => {
+        window.location.href = "inscription.html";
+    });
+</script>
+
   </body>
   </html>

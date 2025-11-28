@@ -28,6 +28,7 @@
     <header class="header" id="header">
       <nav class="nav container">
         <a href="index.html" class="nav__logo">Cactus Maroc</a>
+        
 
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
@@ -44,7 +45,9 @@
           <a href="shop.html#cart" class="nav__cart" title="Panier"
             ><i class="ri-shopping-bag-2-line"></i
           ></a>
-          <div id="auth-widget" class="nav__auth-wrap"></div>
+          <a href="connexion.html" class="button button--outline">Se connecter</a>
+          <a href="inscription.html" class="button button--outline"  id="index-signup">S'inscrire</a>
+
           <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
             <i class="ri-menu-line"></i>
           </button>
@@ -141,8 +144,8 @@
         <div>
           <h3 class="footer__title">Suivez-nous</h3>
           <div class="footer__socials">
-            <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
-            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100031194334365" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
+            <a href="https://www.instagram.com/tahaahoukar/" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
             <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
           </div>
         </div>
@@ -163,5 +166,12 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
+    <script>
+    const signupButton = document.getElementById("index-signup");
+    signupButton.addEventListener("click", () => {
+        window.location.href = "inscription.html"; // redirige vers la page d'inscription
+    });
+</script>
+
   </body>
 </html>
