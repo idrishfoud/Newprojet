@@ -36,20 +36,24 @@
         <h1 class="section__title">Boutique</h1>
         <p>Plantes, graines et produits dérivés du cactus. Livraison nationale.</p><br>
 
+        <!-- Message de connexion avec boutons -->
         <div id="shop-guard" class="auth-note">
-          <p>Bienvenue dans notre Boutique de Cactus
-
-Découvrez une collection unique de cactus soigneusement sélectionnés pour apporter une touche naturelle et élégante à votre espace.
-Que vous soyez passionné par les plantes, débutant ou collectionneur, vous trouverez ici des cactus résistants, décoratifs et faciles à entretenir.
-
-Nos plantes sont choisies avec attention pour garantir qualité, beauté et longévité.
-Explorez notre boutique et laissez-vous inspirer par le charme authentique du cactus. <br><br>
-            Connectez-vous pour consulter la boutique et ajouter au panier.</p><br><br><br>
-          <button class="button button--primary" type="button" id="shop-guard-login">Se connecter</button>
-          <button class="button button--primary" type="button" id="shop-guard-signup">S'inscrire</button>
-
+          <p>
+            Bienvenue dans notre Boutique de Cactus.<br><br>
+            Découvrez une collection unique de cactus soigneusement sélectionnés pour apporter une touche naturelle et élégante à votre espace.<br>
+            Que vous soyez passionné par les plantes, débutant ou collectionneur, vous trouverez ici des cactus résistants, décoratifs et faciles à entretenir.<br><br>
+            Nos plantes sont choisies avec attention pour garantir qualité, beauté et longévité.<br>
+            Explorez notre boutique et laissez-vous inspirer par le charme authentique du cactus.<br><br>
+            Connectez-vous pour consulter la boutique et ajouter au panier.
+          </p><br>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="button button--primary" type="button" id="shop-guard-login">Se connecter</button>
+            <button class="button button--primary" type="button" id="shop-guard-signup">S'inscrire</button>
+            <button class="button button--outline" type="button" id="shop-guard-visitor">Visiteur</button>
+          </div>
         </div>
 
+        <!-- Filtres de boutique -->
         <div class="filters auth-hidden">
           <button class="button button--outline filter__btn" data-filter="all">Tout</button>
           <button class="button button--outline filter__btn" data-filter="plant">Plantes</button>
@@ -57,8 +61,8 @@ Explorez notre boutique et laissez-vous inspirer par le charme authentique du ca
           <button class="button button--outline filter__btn" data-filter="product">Produits</button>
         </div>
 
+        <!-- Produits -->
         <div class="grid shop__grid auth-hidden">
-          <!-- Product cards -->
           <article class="product" data-product data-category="plant" data-id="p1" data-price="150">
             <img src="assets/img/shop-cactus-1.png" alt="Cactus Gymnocalycium" />
             <h3 class="product__title">Cactus Gymnocalycium</h3>
@@ -91,6 +95,7 @@ Explorez notre boutique et laissez-vous inspirer par le charme authentique du ca
           </article>
         </div>
 
+        <!-- Panier -->
         <section class="cart auth-hidden" id="cart">
           <h2 class="section__title">Votre panier</h2>
           <div class="cart__list" id="cart-list"></div>
@@ -105,6 +110,7 @@ Explorez notre boutique et laissez-vous inspirer par le charme authentique du ca
       </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="container footer__container grid">
         <div>
@@ -136,43 +142,32 @@ Explorez notre boutique et laissez-vous inspirer par le charme authentique du ca
     <a href="#shop" class="scrollup" id="scroll-up" aria-label="Retour haut">
       <i class="ri-arrow-up-line"></i>
     </a>
-    <script>
-    document.getElementById("shop-guard-login").addEventListener("click", function () {
-        window.location.href = "connexion.html";
-    });
-    </script>
 
-    <script>
-      // Simple checkout feedback
-      document.addEventListener('DOMContentLoaded', ()=>{
-        const btn = document.getElementById('cart-checkout');
-        if (btn) btn.addEventListener('click', ()=> alert('Commande simulée. Aucun paiement en ligne.'));
-        const guardLogin = document.getElementById('shop-guard-login');
-        if (guardLogin) guardLogin.addEventListener('click', ()=>{
-          // ensure auth widget exists then click login
-          window.AppAuth?.init?.();
-          setTimeout(()=> document.getElementById('auth-login')?.click(), 150);
-        });
-      });
-    </script>
+    <!-- Scripts -->
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/login.js"></script>
+
     <script>
-    // Bouton Se connecter
-    const loginButton = document.getElementById("shop-guard-login");
-    loginButton.addEventListener("click", () => {
-        window.location.href = "connexion.html";
-    });
+      // Boutons de la page boutique
+      const loginButton = document.getElementById("shop-guard-login");
+      const signupButton = document.getElementById("shop-guard-signup");
+      const visitorButton = document.getElementById("shop-guard-visitor");
 
-    // Bouton S'inscrire
-    const signupButton = document.getElementById("shop-guard-signup");
-    signupButton.addEventListener("click", () => {
-        window.location.href = "inscription.html";
-    });
-</script>
+      loginButton.addEventListener("click", () => window.location.href = "connexion.html");
+      signupButton.addEventListener("click", () => window.location.href = "inscription.html");
+      visitorButton.addEventListener("click", () => {
+          document.getElementById("shop-guard").style.display = "none";
+          document.querySelectorAll(".auth-hidden").forEach(el => el.classList.remove("auth-hidden"));
+      });
 
+      // Simple checkout feedback
+      document.addEventListener('DOMContentLoaded', ()=>{
+        const btn = document.getElementById('cart-checkout');
+        if (btn) btn.addEventListener('click', ()=> alert('Commande simulée. Aucun paiement en ligne.'));
+      });
+    </script>
   </body>
-  </html>
+</html>
