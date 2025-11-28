@@ -1,135 +1,135 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Intermédiaire Cactus Maroc: mettez en relation acheteurs et fournisseurs de cactus et produits. Formulaire et tableau dynamiques." />
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <title>Intermédiaire — Cactus Maroc</title>
-  </head>
-  <body>
-    <header class="header" id="header">
-      <nav class="nav container">
-        <a href="index.html" class="nav__logo">Cactus Maroc</a>
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li><a href="index.html" class="nav__link">Accueil</a></li>
-            <li><a href="about.html" class="nav__link">À propos</a></li>
-            <li><a href="shop.html" class="nav__link">Boutique</a></li>
-            <li><a href="intermediaire.html" class="nav__link active-link">Intermédiaire</a></li>
-            <li><a href="projets.html" class="nav__link">Projets</a></li>
-            <li><a href="contact.html" class="nav__link">Contact</a></li>
-          </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Intermédiaire Cactus Maroc: mettez en relation acheteurs et fournisseurs de cactus et produits. Formulaire et tableau dynamiques." />
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>Intermédiaire — Cactus Maroc</title>
+</head>
+<body>
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Cactus Maroc</a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Accueil</a></li>
+          <li><a href="about.html" class="nav__link">À propos</a></li>
+          <li><a href="shop.html" class="nav__link">Boutique</a></li>
+          <li><a href="intermediaire.html" class="nav__link active-link">Intermédiaire</a></li>
+          <li><a href="projets.html" class="nav__link">Projets</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav__actions">
+        <a href="shop.html#cart" class="nav__cart" title="Panier"><i class="ri-shopping-bag-2-line"></i></a>
+        <div id="auth-widget" class="nav__auth-wrap"></div>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu"><i class="ri-menu-line"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <!--==================== MAIN ====================-->
+  <main class="main">
+    <section class="section container" id="inter">
+      <h1 class="section__title">Acheteurs & Fournisseurs</h1>
+      <p>
+        Enregistrez votre demande ou votre offre. Nous affichons les entrées
+        pour faciliter la mise en relation. Les données restent locales dans
+        votre navigateur (localStorage).
+      </p>
+
+      <form class="form" id="inter-form">
+        <div class="form__row">
+          <label for="inter-name">Nom complet</label>
+          <input id="inter-name" type="text" placeholder="Votre nom" required />
         </div>
-        <div class="nav__actions">
-          <a href="shop.html#cart" class="nav__cart" title="Panier"><i class="ri-shopping-bag-2-line"></i></a>
-          <div id="auth-widget" class="nav__auth-wrap"></div>
-          <button class="nav__toggle" id="nav-toggle" aria-label="Menu"><i class="ri-menu-line"></i></button>
+        <div class="form__row">
+          <label for="inter-email">Email</label>
+          <input id="inter-email" type="email" placeholder="vous@exemple.com" required />
         </div>
-      </nav>
-    </header>
-
-    <main class="main">
-      <section class="section container" id="inter">
-        <h1 class="section__title">Acheteurs & Fournisseurs</h1>
-        <p>
-          Enregistrez votre demande ou votre offre. Nous affichons les entrées
-          pour faciliter la mise en relation. Les données restent locales dans
-          votre navigateur (localStorage).
-        </p>
-
-        <form class="form" id="inter-form">
-          <div class="form__row">
-            <label for="inter-name">Nom complet</label>
-            <input id="inter-name" type="text" placeholder="Votre nom" required />
-          </div>
-          <div class="form__row">
-            <label for="inter-email">Email</label>
-            <input id="inter-email" type="email" placeholder="vous@exemple.com" required />
-          </div>
-          <div class="form__row">
-            <label for="inter-role">Rôle</label>
-            <select id="inter-role" required>
-              <option value="buyer">Acheteur</option>
-              <option value="supplier">Fournisseur</option>
-            </select>
-          </div>
-          <div class="form__row">
-            <label for="inter-product">Produit/Demande</label>
-            <input id="inter-product" type="text" placeholder="Ex: huile, fruits, plants..." required />
-          </div>
-          <div class="form__row">
-            <label for="inter-message">Message</label>
-            <textarea id="inter-message" rows="4" placeholder="Détails"></textarea>
-          </div>
-          <div>
-            <button class="button button--primary" type="submit">Soumettre</button>
-            <button class="button button--outline" type="button" id="inter-clear">Tout effacer</button>
-          </div>
-        </form>
-
-        <div style="margin-top:1.5rem; overflow:auto;">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Email</th>
-                <th>Rôle</th>
-                <th>Produit/Demande</th>
-                <th>Message</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="inter-table-body"></tbody>
-          </table>
+        <div class="form__row">
+          <label for="inter-role">Rôle</label>
+          <select id="inter-role" required>
+            <option value="buyer">Acheteur</option>
+            <option value="supplier">Fournisseur</option>
+          </select>
         </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer__container grid">
-        <div>
-          <a href="index.html" class="footer__logo">Cactus Maroc</a>
-          <p class="footer__description">Connecter acheteurs et fournisseurs.</p>
+        <div class="form__row">
+          <label for="inter-product">Produit/Demande</label>
+          <input id="inter-product" type="text" placeholder="Ex: huile, fruits, plants..." required />
+        </div>
+        <div class="form__row">
+          <label for="inter-message">Message</label>
+          <textarea id="inter-message" rows="4" placeholder="Détails" required></textarea>
         </div>
         <div>
-          <h3 class="footer__title">Liens</h3>
-          <ul class="footer__links">
-            <li><a href="about.html">À propos</a></li>
-            <li><a href="shop.html">Boutique</a></li>
-            <li><a href="projets.html">Projets</a></li>
-            <li><a href="intermediaire.html">Intermédiaire</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+          <button class="button button--primary" type="submit">Soumettre</button>
+          <button class="button button--outline" type="button" id="inter-clear">Tout effacer</button>
         </div>
-        <div>
-          <h3 class="footer__title">Suivez-nous</h3>
-          <div class="footer__socials">
-            <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
-            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
-          </div>
+      </form>
+
+      <div style="margin-top:1.5rem; overflow:auto;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Rôle</th>
+              <th>Produit/Demande</th>
+              <th>Message</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="inter-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer">
+    <div class="container footer__container grid">
+      <div>
+        <a href="index.html" class="footer__logo">Cactus Maroc</a>
+        <p class="footer__description">Connecter acheteurs et fournisseurs.</p>
+      </div>
+      <div>
+        <h3 class="footer__title">Liens</h3>
+        <ul class="footer__links">
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="shop.html">Boutique</a></li>
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="intermediaire.html">Intermédiaire</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__title">Suivez-nous</h3>
+        <div class="footer__socials">
+          <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
+          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
         </div>
       </div>
-      <p class="footer__copy">© Cactus Maroc. Tous droits réservés.</p>
-    </footer>
+    </div>
+    <p class="footer__copy">© Cactus Maroc. Tous droits réservés.</p>
+  </footer>
 
-    <a href="#inter" class="scrollup" id="scroll-up" aria-label="Retour haut">
-      <i class="ri-arrow-up-line"></i>
-    </a>
-    <script src="assets/js/scrollreveal.min.js"></script>
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
-    <script src="assets/js/auth.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/login.js"></script>
-    <script>
-  if (localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "login.html";
-  }
-</script>
+  <!--========== SCROLL UP ==========-->
+  <a href="#inter" class="scrollup" id="scroll-up" aria-label="Retour haut">
+    <i class="ri-arrow-up-line"></i>
+  </a>
 
-  </body>
-  </html>
+  <!--=============== SCRIPTS ===============-->
+  <script src="assets/js/scrollreveal.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+ 
+</body>
+</html>
+
