@@ -1,173 +1,365 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Boutique Cactus Maroc: plantes, graines et produits dérivés du cactus. Panier localStorage et filtres par catégorie." />
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <title>Boutique — Cactus Maroc</title>
-  </head>
-  <body>
-    <header class="header" id="header">
-      <nav class="nav container">
-        <a href="index.html" class="nav__logo">Cactus Maroc</a>
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li><a href="index.html" class="nav__link">Accueil</a></li>
-            <li><a href="about.html" class="nav__link">À propos</a></li>
-            <li><a href="shop.html" class="nav__link active-link">Boutique</a></li>
-            <li><a href="intermediaire.html" class="nav__link">Intermédiaire</a></li>
-            <li><a href="projets.html" class="nav__link">Projets</a></li>
-            <li><a href="contact.html" class="nav__link">Contact</a></li>
-          </ul>
-        </div>
-        <div class="nav__actions">
-          <a href="#cart" class="nav__cart" title="Panier"><i class="ri-shopping-bag-2-line"></i></a>
-          <div id="auth-widget" class="nav__auth-wrap"></div>
-          <button class="nav__toggle" id="nav-toggle" aria-label="Menu"><i class="ri-menu-line"></i></button>
-        </div>
-      </nav>
-    </header>
 
-    <main class="main">
-      <section class="section container" id="shop" data-shop>
-        <h1 class="section__title">Boutique</h1>
-        <p>Plantes, graines et produits dérivés du cactus. Livraison nationale.</p><br>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Boutique Cactus Maroc: plantes, graines et produits dérivés du cactus. Panier localStorage et filtres par catégorie." />
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>Boutique — Cactus Maroc</title>
+</head>
 
-        <!-- Message de connexion avec boutons -->
-        <div id="shop-guard" class="auth-note">
-          <p>
-            Bienvenue dans notre Boutique de Cactus.<br><br>
-            Découvrez une collection unique de cactus soigneusement sélectionnés pour apporter une touche naturelle et élégante à votre espace.<br>
-            Que vous soyez passionné par les plantes, débutant ou collectionneur, vous trouverez ici des cactus résistants, décoratifs et faciles à entretenir.<br><br>
-            Nos plantes sont choisies avec attention pour garantir qualité, beauté et longévité.<br>
-            Explorez notre boutique et laissez-vous inspirer par le charme authentique du cactus.<br><br>
-            Connectez-vous pour consulter la boutique et ajouter au panier.
-          </p><br>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button class="button button--primary" type="button" id="shop-guard-login">Se connecter</button>
-            <button class="button button--primary" type="button" id="shop-guard-signup">S'inscrire</button>
-            <button class="button button--outline" type="button" id="shop-guard-visitor">Visiteur</button>
-          </div>
-        </div>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Cactus Maroc</a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Accueil</a></li>
+          <li><a href="about.html" class="nav__link">À propos</a></li>
+          <li><a href="shop.html" class="nav__link active-link">Boutique</a></li>
+          <li><a href="intermediaire.html" class="nav__link">Intermédiaire</a></li>
+          <li><a href="projets.html" class="nav__link">Projets</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav__actions">
+        <a href="#cart" class="nav__cart" title="Panier"><i class="ri-shopping-bag-2-line"></i></a>
+        <div id="auth-widget" class="nav__auth-wrap"></div>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Menu"><i class="ri-menu-line"></i></button>
+      </div>
+    </nav>
+  </header>
 
-        <!-- Filtres de boutique -->
-        <div class="filters auth-hidden">
-          <button class="button button--outline filter__btn" data-filter="all">Tout</button>
-          <button class="button button--outline filter__btn" data-filter="plant">Plantes</button>
-          <button class="button button--outline filter__btn" data-filter="seed">Graines</button>
-          <button class="button button--outline filter__btn" data-filter="product">Produits</button>
-        </div>
+  <main class="main">
+    <section class="section container" id="shop" data-shop>
+      <h1 class="section__title">Boutique</h1>
+      <p>Plantes, graines et produits dérivés du cactus. Livraison nationale.</p><br>
 
-        <!-- Produits -->
-        <div class="grid shop__grid auth-hidden">
-          <article class="product" data-product data-category="plant" data-id="p1" data-price="150">
-            <img src="assets/img/shop-cactus-1.png" alt="Cactus Gymnocalycium" />
-            <h3 class="product__title">Cactus Gymnocalycium</h3>
-            <div class="product__price" data-price>150.00 MAD</div>
-            <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
-          </article>
-          <article class="product" data-product data-category="seed" data-id="s1" data-price="40">
-            <img src="assets/img/shop-cactus-2.png" alt="Graines de cactus" />
-            <h3 class="product__title">Graines mix cactus</h3>
-            <div class="product__price" data-price>40.00 MAD</div>
-            <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
-          </article>
-          <article class="product" data-product data-category="product" data-id="o1" data-price="320">
-            <img src="assets/img/shop-cactus-3.png" alt="Huile de figue de barbarie" />
-            <h3 class="product__title">Huile de figue de barbarie 30ml</h3>
-            <div class="product__price" data-price>320.00 MAD</div>
-            <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
-          </article>
-          <article class="product" data-product data-category="plant" data-id="p2" data-price="110">
-            <img src="assets/img/shop-cactus-4.png" alt="Echeveria" />
-            <h3 class="product__title">Echeveria</h3>
-            <div class="product__price" data-price>110.00 MAD</div>
-            <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
-          </article>
-          <article class="product" data-product data-category="product" data-id="o2" data-price="45">
-            <img src="assets/img/shop-cactus-5.png" alt="Confiture de cactus" />
-            <h3 class="product__title">Confiture de cactus</h3>
-            <div class="product__price" data-price>45.00 MAD</div>
-            <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
-          </article>
-        </div>
-
-        <!-- Panier -->
-        <section class="cart auth-hidden" id="cart">
-          <h2 class="section__title">Votre panier</h2>
-          <div class="cart__list" id="cart-list"></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;">
-            <strong>Total: <span id="cart-total">0.00 MAD</span></strong>
-            <div>
-              <button class="button button--outline" id="cart-clear">Vider</button>
-              <button class="button button--primary" id="cart-checkout">Commander</button>
-            </div>
-          </div>
-        </section>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer__container grid">
-        <div>
-          <a href="index.html" class="footer__logo">Cactus Maroc</a>
-          <p class="footer__description">Produits authentiques et durables.</p>
-        </div>
-        <div>
-          <h3 class="footer__title">Liens</h3>
-          <ul class="footer__links">
-            <li><a href="about.html">À propos</a></li>
-            <li><a href="shop.html">Boutique</a></li>
-            <li><a href="projets.html">Projets</a></li>
-            <li><a href="intermediaire.html">Intermédiaire</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="footer__title">Suivez-nous</h3>
-          <div class="footer__socials">
-            <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
-            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
-          </div>
+      <!-- Message de connexion avec boutons -->
+      <div id="shop-guard" class="auth-note">
+        <p>
+          Bienvenue dans notre Boutique de Cactus.<br><br>
+          Découvrez une collection unique de cactus soigneusement sélectionnés pour apporter une touche naturelle et
+          élégante à votre espace.<br>
+          Que vous soyez passionné par les plantes, débutant ou collectionneur, vous trouverez ici des cactus
+          résistants, décoratifs et faciles à entretenir.<br><br>
+          Nos plantes sont choisies avec attention pour garantir qualité, beauté et longévité.<br>
+          Explorez notre boutique et laissez-vous inspirer par le charme authentique du cactus.<br><br>
+          Connectez-vous pour consulter la boutique et ajouter au panier.
+        </p><br>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="button button--primary" type="button" id="shop-guard-login">Se connecter</button>
+          <button class="button button--primary" type="button" id="shop-guard-signup">S'inscrire</button>
+          <button class="button button--outline" type="button" id="shop-guard-visitor">Visiteur</button>
         </div>
       </div>
-      <p class="footer__copy">© Cactus Maroc. Tous droits réservés.</p>
-    </footer>
 
-    <a href="#shop" class="scrollup" id="scroll-up" aria-label="Retour haut">
-      <i class="ri-arrow-up-line"></i>
-    </a>
+      <!-- Filtres de boutique -->
+      <div class="filters auth-hidden">
+        <button class="button button--outline filter__btn" data-filter="all">Tout</button>
+        <button class="button button--outline filter__btn" data-filter="plant">Plantes</button>
+        <button class="button button--outline filter__btn" data-filter="seed">Graines</button>
+        <button class="button button--outline filter__btn" data-filter="product">Produits</button>
+      </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/scrollreveal.min.js"></script>
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
-    <script src="assets/js/auth.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/login.js"></script>
+      <!-- Produits -->
+      <div class="grid shop__grid auth-hidden">
+        <!-- Produit 1 : Opuntia -->
+        <!-- Graines 1 : Graines de cactus mélangées (mélange décoratif) -->
+        <article class="product" data-product data-category="seed" data-id="s_mix1" data-price="60">
+          <img src="assets/img/P3.jpg" alt="Graines de cactus mélange déco" />
+          <h3 class="product__title">Graines Cactus Mélange Décoratif</h3>
+          <div class="product__price" data-price>60.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
 
-    <script>
-      // Boutons de la page boutique
-      const loginButton = document.getElementById("shop-guard-login");
-      const signupButton = document.getElementById("shop-guard-signup");
-      const visitorButton = document.getElementById("shop-guard-visitor");
+       
 
-      loginButton.addEventListener("click", () => window.location.href = "connexion.html");
-      signupButton.addEventListener("click", () => window.location.href = "inscription.html");
-      visitorButton.addEventListener("click", () => {
-          document.getElementById("shop-guard").style.display = "none";
-          document.querySelectorAll(".auth-hidden").forEach(el => el.classList.remove("auth-hidden"));
-      });
+        <!-- Graines 3 : Graines de succulentes & cactus assortis (pack débutant) -->
+        <article class="product" data-product data-category="seed" data-id="s_beginner_pack" data-price="45">
+          <img src="assets/img/P1.jpg" alt="Pack débutant graines succulentes" />
+          <h3 class="product__title">Pack Débutant – Graines Cactus & Succulentes</h3>
+          <div class="product__price" data-price>45.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+         <!-- Graines 3 : Graines de succulentes & cactus assortis (pack débutant) -->
+        <article class="product" data-product data-category="seed" data-id="s_beginner_pack" data-price="45">
+          <img src="assets/img/P2.jpg" alt="Pack débutant graines succulentes" />
+          <h3 class="product__title"> Graines Cactus & Succulentes</h3>
+          <div class="product__price" data-price>40.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
 
-      // Simple checkout feedback
-      document.addEventListener('DOMContentLoaded', ()=>{
-        const btn = document.getElementById('cart-checkout');
-        if (btn) btn.addEventListener('click', ()=> alert('Commande simulée. Aucun paiement en ligne.'));
-      });
-    </script>
-  </body>
+        
+
+        <!-- Produit dérivé 3 : Crème visage à l’huile de figue de barbarie (30 ml) -->
+        <article class="product" data-product data-category="product" data-id="o_cream" data-price="240">
+          <img src="assets/img/créme.jpg" alt="Crème visage figue de barbarie" />
+          <h3 class="product__title">Crème Visage – Figue de Barbarie & Hydratation</h3>
+          <div class="product__price" data-price>240.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit dérivé 4 : Terreau / Sol germination graines cactus (500 ml) -->
+        <article class="product" data-product data-category="product" data-id="o_soil" data-price="35">
+          <img src="assets/img/P4.jpg" alt="Terreau germination cactus" />
+          <h3 class="product__title">Substrat Germination Cactus & Succulentes 500 ml</h3>
+          <div class="product__price" data-price>35.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit dérivé 5 : Kit semis cactus (terreau + graines mélangées) -->
+        <article class="product" data-product data-category="product" data-id="o_kit_semi" data-price="80">
+          <img src="assets/img/P5.jpg" alt="Kit semis cactus" />
+          <h3 class="product__title">Kit Semis Cactus – Terreau + Graines</h3>
+          <div class="product__price" data-price>80.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit dérivé 6 : Confiture de cactus (petite jar) -->
+        <article class="product" data-product data-category="product" data-id="o_jam" data-price="55">
+          <img src="assets/img/P6.jpg" alt="Confiture de cactus" />
+          <h3 class="product__title">Confiture de Cactus – 200 g</h3>
+          <div class="product__price" data-price>55.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit dérivé 7 : Savon naturel à l’huile de figue de barbarie -->
+        <article class="product" data-product data-category="product" data-id="o_soap" data-price="65">
+          <img src="assets/img/savon.jpg" alt="Savon figue de barbarie" />
+          <h3 class="product__title">Savon Naturel – Figue de Barbarie</h3>
+          <div class="product__price" data-price>65.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit dérivé 8 : Sérum huile de cactus visage (10 ml) -->
+        <article class="product" data-product data-category="product" data-id="o_serum" data-price="150">
+          <img src="assets/img/serum.jpg" alt="Sérum huile de cactus" />
+          <h3 class="product__title">Sérum Visage – Huile de Cactus 10 ml</h3>
+          <div class="product__price" data-price>150.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit dérivé 9 : Huile de cactus / figue de barbarie – flacon luxe 100 ml -->
+        <article class="product" data-product data-category="product" data-id="o_oil_100" data-price="950">
+          <img src="assets/img/P14.jpg" alt="Huile figue de barbarie 100ml" />
+          <h3 class="product__title">Huile de Figue de Barbarie 100 ml (Luxe)</h3>
+          <div class="product__price" data-price>950.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+        <article class="product" data-product data-category="plant" data-id="p_opuntia" data-price="300">
+          <img src="assets/img/Pè.jpg" alt="Cactus Opuntia" />
+          <h3 class="product__title">Opuntia</h3>
+          <div class="product__price" data-price>300.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit 2 : Myrtillocactus -->
+        <article class="product" data-product data-category="plant" data-id="p_myrtil" data-price="380">
+          <img src="assets/img/myrtillo.jpg" alt="Myrtillocactus" />
+          <h3 class="product__title">Myrtillocactus</h3>
+          <div class="product__price" data-price>380.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit 3 : Ferocactus glaucescens -->
+        <article class="product" data-product data-category="plant" data-id="p_ferocactus" data-price="264">
+          <img src="assets/img/P9.jpg" alt="Ferocactus glaucescens" />
+          <h3 class="product__title">Ferocactus Glaucescens</h3>
+          <div class="product__price" data-price>264.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit 4 : Pachycereus pringlei -->
+        <article class="product" data-product data-category="plant" data-id="p_pringlei" data-price="380">
+          <img src="assets/img/P10.jpg" alt="Pachycereus pringlei" />
+          <h3 class="product__title">Pachycereus Pringlei</h3>
+          <div class="product__price" data-price>380.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit 5 : Cactus variété -->
+        <article class="product" data-product data-category="plant" data-id="p_variete" data-price="51">
+          <img src="assets/img/P11.jpg" alt="Cactus variété" />
+          <h3 class="product__title">Cactus Variété</h3>
+          <div class="product__price" data-price>51.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit 6 : Euphorbia ingens -->
+        <article class="product" data-product data-category="plant" data-id="p_euphorbia" data-price="320">
+          <img src="assets/img/P12.jpg" alt="Euphorbia ingens" />
+          <h3 class="product__title">Euphorbia Ingens</h3>
+          <div class="product__price" data-price>320.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit 7 : Echeveria (déjà existant mais version améliorée) -->
+        <article class="product" data-product data-category="plant" data-id="p_echeveria" data-price="110">
+          <img src="assets/img/P13.jpg" alt="Echeveria" />
+          <h3 class="product__title">Echeveria</h3>
+          <div class="product__price" data-price>110.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit 8 : Mammillaria elongata -->
+        <article class="product" data-product data-category="plant" data-id="p_mammillaria" data-price="75">
+          <img src="assets/img/mamilaria.jpg" alt="Mammillaria elongata" />
+          <h3 class="product__title">Mammillaria Elongata</h3>
+          <div class="product__price" data-price>75.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit 9 : Astrophytum ornatum -->
+        <article class="product" data-product data-category="plant" data-id="p_astrophytum" data-price="190">
+          <img src="assets/img/astrophy.jpg" alt="Astrophytum ornatum" />
+          <h3 class="product__title">Astrophytum Ornatum</h3>
+          <div class="product__price" data-price>190.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>     
+        <article class="product" data-product data-category="plant" data-id="p1" data-price="150">
+          <img src="assets/img/P17.jpg" alt="Cactus Gymnocalycium" />
+          <h3 class="product__title">Cactus Gymnocalycium</h3>
+          <div class="product__price" data-price>150.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+        <article class="product" data-product data-category="seed" data-id="s1" data-price="40">
+          <img src="assets/img/P5.jpg" alt="Graines de cactus" />
+          <h3 class="product__title">Graines mix cactus</h3>
+          <div class="product__price" data-price>40.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+        <article class="product" data-product data-category="plant" data-id="p2" data-price="110">
+          <img src="assets/img/echeveria.jpg" alt="Echeveria" />
+          <h3 class="product__title">Echeveria</h3>
+          <div class="product__price" data-price>110.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+        <article class="product" data-product data-category="product" data-id="o2" data-price="45">
+          <img src="assets/img/confiture.jpg" alt="Confiture de cactus" />
+          <h3 class="product__title">Confiture de cactus</h3>
+          <div class="product__price" data-price>45.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+        <!-- Produit N : Tephrocactus articulatus (Paper-spine cactus) -->
+        <article class="product" data-product data-category="plant" data-id="p_tephrocactus" data-price="165">
+          <img src="assets/img/tephro.jpg" alt="Tephrocactus articulatus" />
+          <h3 class="product__title">Tephrocactus Articulatus</h3>
+          <div class="product__price" data-price>165.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit O : Parodia / Notocactus (cactus jaune-épineux) -->
+        <article class="product" data-product data-category="plant" data-id="p_parodia_generic" data-price="150">
+          <img src="assets/img/parodia.jpg" alt="Parodia / Notocactus" />
+          <h3 class="product__title">Parodia / Notocactus (cactus jaune)</h3>
+          <div class="product__price" data-price>150.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit P : Aloe aristata (succulente pour intérieur) -->
+        <article class="product" data-product data-category="plant" data-id="p_aloe_aristata" data-price="130">
+          <img src="assets/img/aristata.jpg" alt="Aloe aristata" />
+          <h3 class="product__title">Aloe Aristata</h3>
+          <div class="product__price" data-price>130.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit Q : Crassula (succulente décorative) -->
+        <article class="product" data-product data-category="plant" data-id="p_crassula" data-price="100">
+          <img src="assets/img/carassula.jpg" alt="Crassula" />
+          <h3 class="product__title">Crassula (succulente)</h3>
+          <div class="product__price" data-price>100.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+
+        <!-- Produit R : Lithops (plantes “pierres vivantes”) -->
+        <article class="product" data-product data-category="plant" data-id="p_lithops" data-price="85">
+          <img src="assets/img/P13.jpg" alt="Lithops" />
+          <h3 class="product__title">Lithops (plante pierre)</h3>
+          <div class="product__price" data-price>85.00 MAD</div>
+          <button class="button button--primary" data-add><i class="ri-add-line"></i> Ajouter</button>
+        </article>
+      </div>
+
+      <!-- Panier -->
+      <section class="cart auth-hidden" id="cart">
+        <h2 class="section__title">Votre panier</h2>
+        <div class="cart__list" id="cart-list"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;">
+          <strong>Total: <span id="cart-total">0.00 MAD</span></strong>
+          <div>
+            <button class="button button--outline" id="cart-clear">Vider</button>
+            <button class="button button--primary" id="cart-checkout">Commander</button>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__container grid">
+      <div>
+        <a href="index.html" class="footer__logo">Cactus Maroc</a>
+        <p class="footer__description">Produits authentiques et durables.</p>
+      </div>
+      <div>
+        <h3 class="footer__title">Liens</h3>
+        <ul class="footer__links">
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="shop.html">Boutique</a></li>
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="intermediaire.html">Intermédiaire</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__title">Suivez-nous</h3>
+        <div class="footer__socials">
+          <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
+          <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer__copy">© Cactus Maroc. Tous droits réservés.</p>
+  </footer>
+
+  <a href="#shop" class="scrollup" id="scroll-up" aria-label="Retour haut">
+    <i class="ri-arrow-up-line"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/scrollreveal.min.js"></script>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5/auth0-spa-js.production.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/login.js"></script>
+
+  <script>
+    // Boutons de la page boutique
+    const loginButton = document.getElementById("shop-guard-login");
+    const signupButton = document.getElementById("shop-guard-signup");
+    const visitorButton = document.getElementById("shop-guard-visitor");
+
+    loginButton.addEventListener("click", () => window.location.href = "connexion.html");
+    signupButton.addEventListener("click", () => window.location.href = "inscription.html");
+    visitorButton.addEventListener("click", () => {
+      document.getElementById("shop-guard").style.display = "none";
+      document.querySelectorAll(".auth-hidden").forEach(el => el.classList.remove("auth-hidden"));
+    });
+
+    // Simple checkout feedback
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('cart-checkout');
+      if (btn) btn.addEventListener('click', () => alert('Commande simulée. Aucun paiement en ligne.'));
+    });
+  </script>
+</body>
+
 </html>

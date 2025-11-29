@@ -8,6 +8,16 @@
   - Forms validation & localStorage
 */
 
+/*=============== INJECT AUTH BUTTONS DYNAMICALLY ===============*/
+(function injectAuthButtons(){
+  const authWidget = document.getElementById('nav__auth-wrap');
+  if (!authWidget || authWidget.children.length > 0) return; // Already has content or doesn't exist
+  authWidget.innerHTML = `
+    <a href="../connexion.html" class="button button--outline">Se connecter</a>
+    <a href="../inscription.html" class="button button--outline">S'inscrire</a>
+  `;
+})();
+
 /*=============== SHOW/HIDE MENU ===============*/
 (function menuToggle(){
   const navMenu = document.getElementById('nav-menu');
