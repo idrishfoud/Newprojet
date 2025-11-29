@@ -1,3 +1,4 @@
+// ...existing code...
 /* Auth0 SPA authentication integration (OAuth)
    - Replace AUTH0_DOMAIN and AUTH0_CLIENT_ID with your values
    - Gating example for the shop: hides products/cart until login
@@ -26,8 +27,12 @@
         el.classList.toggle('auth-hidden', !show);
     }
 
+    function getAuthWidget(){
+        return document.getElementById('auth-widget');
+    }
+
     function ensureWidget(){
-        let host = qs('#auth-widget');
+        const host = getAuthWidget();
         if (!host) return null;
         if (!host.dataset.rendered) {
             host.innerHTML = `
@@ -41,6 +46,28 @@
             host.dataset.rendered = 'true';
         }
         return host;
+    }
+
+    // Fallback renderer using localStorage (when Auth0 not configured / SDK blocked)
+    function renderFallback(){
+        const host = getAuthWidget();
+        if (!host) return;
+        const logged = localStorage.getItem("loggedIn") === "true";
+        if (logged) {
+            host.innerHTML = `
+                <span class="nav__user" id="user-name">${localStorage.getItem("userEmail") || ''}</span>
+                <button id="fallback-logout" class="button button--small">Déconnexion</button>
+            `;
+            const btn = document.getElementById('fallback-logout');
+            if (btn) btn.addEventListener('click', () => {
+                localStorage.removeItem("loggedIn");
+                localStorage.removeItem("userEmail");
+                window.location.reload();
+            });
+        } else {
+            host.innerHTML = `<a href="connexion.html" class="button button--small">Connexion</a>`;
+        }
+        host.dataset.rendered = 'true';
     }
 
     async function updateUI(){
@@ -63,7 +90,7 @@
 
         // Optional: show user name
         const userEl = qs('#user-name');
-        if (userEl) userEl.textContent = state.user?.name || '';
+        if (userEl) userEl.textContent = state.user?.name || localStorage.getItem("userEmail") || '';
     }
 
     function loadAuth0Sdk(){
@@ -90,11 +117,19 @@
         ensureWidget();
         const sdkLoaded = await loadAuth0Sdk();
         if (!sdkLoaded) {
-            console.warn('Auth0 SDK not loaded. Check network/adblock and serve over http(s).');
+            console.warn('Auth0 SDK not loaded. Using local fallback (check network/adblock).');
+            // populate state from localStorage for gating UI
+            state.isAuthenticated = localStorage.getItem("loggedIn") === "true";
+            state.user = state.isAuthenticated ? { name: localStorage.getItem("userEmail") } : null;
+            renderFallback();
             return updateUI();
         }
         if (CONFIG.domain.includes('YOUR_') || CONFIG.clientId.includes('YOUR_')) {
-            console.warn('Auth0 config placeholders detected. Replace domain and clientId in assets/js/auth.js');
+            console.warn('Auth0 config placeholders detected. Using local fallback. Replace domain and clientId in assets/js/auth.js');
+            state.isAuthenticated = localStorage.getItem("loggedIn") === "true";
+            state.user = state.isAuthenticated ? { name: localStorage.getItem("userEmail") } : null;
+            renderFallback();
+            return updateUI();
         }
         state.client = await createAuth0Client(CONFIG);
 
@@ -132,23 +167,4 @@
     }
 })();
 
-// Local storage based auth fallback
-const authWidget = document.getElementById("auth-widget");
-
-function updateAuthUI() {
-    const logged = localStorage.getItem("loggedIn");
-    if (logged === "true") {
-        authWidget.innerHTML = `
-            <button id="logout-btn" class="button button--small">Déconnexion</button>
-        `;
-        document.getElementById("logout-btn").addEventListener("click", () => {
-            localStorage.removeItem("loggedIn");
-            localStorage.removeItem("userEmail");
-            window.location.reload();
-        });
-    } else {
-        authWidget.innerHTML = `
-            <a href="connexion.html" class="button button--small">Connexion</a>
-        `;
-    }
-}
+// ...existing code...
