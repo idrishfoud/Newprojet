@@ -730,3 +730,86 @@ header.header {
     color: #4CAF50 !important;
     transform: scale(1.05);
 }
+
+/*=============== AUTH WIDGET (added) ===============*/
+/* Styles pour le widget d'authentification dans la nav */
+#auth-widget,
+.nav__auth-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+/* Boutons / liens dans le widget — harmonisés avec la nav */
+#auth-widget .nav__auth,
+#auth-widget .button,
+#auth-widget a.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--title-color);
+}
+
+/* Variante outline (bouton Se connecter) */
+#auth-widget .button--outline,
+#auth-widget .nav__auth.button--outline {
+  border: 1px solid var(--first-color);
+  color: var(--first-color);
+  background: transparent;
+}
+
+/* Variante fantôme (déconnexion) */
+#auth-widget .button--ghost {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-color);
+}
+
+/* Petits boutons (ex: lien de fallback) */
+#auth-widget .button--small {
+  padding: 0.25rem 0.45rem;
+  font-size: 0.85rem;
+  border-radius: 5px;
+}
+
+/* Utilisateur affiché */
+#auth-widget .nav__user,
+#auth-widget #user-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--title-color);
+  padding: 0 0.25rem;
+}
+
+/* Masquer via JS */
+.auth-hidden {
+  display: none !important;
+}
+
+/* Icones alignées */
+#auth-widget i[class^="ri-"] {
+  font-size: 1.05rem;
+  vertical-align: middle;
+}
+
+/* Mobile: réduire l'espace si nécessaire */
+@media (max-width: 700px){
+  #auth-widget,
+  .nav__auth-wrap {
+    gap: 0.25rem;
+  }
+  #auth-widget .nav__auth,
+  #auth-widget .button {
+    padding: 0.25rem 0.45rem;
+    font-size: 0.9rem;
+  }
+}
