@@ -141,4 +141,8 @@ function updateAuthUI() {
       <a href="login.html" class="button button--small">Connexion</a>
     `;
   }
+  authWidget.innerHTML = `
+  <a href="connexion.html" class="nav__login">Se connecter</a>
+`;
+
 }
